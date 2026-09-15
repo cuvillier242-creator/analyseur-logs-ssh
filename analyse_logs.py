@@ -12,8 +12,8 @@ import csv
 import sys
 from collections import Counter
 
-from analyseur.detection import analyser
-from analyseur.parser import lire_fichier
+from detection import analyser
+from parser import lire_fichier
 
 
 def afficher_rapport(evenements, alertes):

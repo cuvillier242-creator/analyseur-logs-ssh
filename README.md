@@ -24,13 +24,13 @@ cd analyseur-logs-ssh
 
 ```bash
 # 1. Générer un fichier de logs fictif pour tester
-python exemples/generer_logs.py
+python generer_logs.py
 
 # 2. Lancer l'analyse
-python analyse_logs.py exemples/auth.log --annee 2026
+python analyse_logs.py auth.log --annee 2026
 
 # Options
-python analyse_logs.py exemples/auth.log --seuil 3 --fenetre 5 --csv rapport.csv
+python analyse_logs.py auth.log --seuil 3 --fenetre 5 --csv rapport.csv
 ```
 
 Sur un vrai serveur Linux : `sudo python analyse_logs.py /var/log/auth.log`
@@ -53,17 +53,17 @@ Alertes : 6
 ## Structure du projet
 
 ```
-analyse_logs.py          # point d'entrée : options, rapport, export CSV
-analyseur/parser.py      # lecture des lignes de log avec des expressions régulières
-analyseur/detection.py   # les 4 règles de détection
-exemples/generer_logs.py # création de logs fictifs (trafic normal + 3 attaques)
-tests/test_detection.py  # tests automatiques
+analyse_logs.py     # point d'entrée : options, rapport, export CSV
+parser.py           # lecture des lignes de log avec des expressions régulières
+detection.py        # les 4 règles de détection
+generer_logs.py     # création de logs fictifs (trafic normal + 3 attaques)
+test_detection.py   # tests automatiques
 ```
 
 ## Tests
 
 ```bash
-python -m unittest discover tests
+python -m unittest test_detection
 ```
 
 ## Comment ça marche

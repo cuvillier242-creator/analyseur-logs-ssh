@@ -1,11 +1,11 @@
-"""Tests automatiques. Lancer avec : python -m unittest discover tests"""
+"""Tests automatiques. Lancer avec : python -m unittest test_detection"""
 
 import unittest
 from datetime import datetime, timedelta
 
-from analyseur.detection import (connexion_hors_horaires, enumeration_comptes,
+from detection import (connexion_hors_horaires, enumeration_comptes,
                                  force_brute, succes_apres_echecs)
-from analyseur.parser import Evenement, lire_ligne
+from parser import Evenement, lire_ligne
 
 T0 = datetime(2026, 9, 14, 10, 0, 0)
 
